@@ -4,6 +4,7 @@ The pipeline extracts raw data, performs memory-efficient transformations, and p
 
 ## Project Overview
 The NYC Taxi ETL Pipeline is designed to demonstrate real-world data engineering practices such as:
+
 	- Workflow orchestration with Apache Airflow
 	-	Handling large datasets efficiently using chunk-based processing
 	-	Running data pipelines in a Dockerized environment

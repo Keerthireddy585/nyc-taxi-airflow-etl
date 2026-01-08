@@ -168,11 +168,13 @@ This project demonstrates a production-style data engineering pipeline with **Ai
 It highlights best practices for handling large datasets, task orchestration, and analytics preparation.
 
 ### Future Enhancements:
--	Convert CSV to Parquet
--	Load data into PostgreSQL / Data Warehouse
--	Add data quality checks
--	Schedule automated DAG runs
--	Add monitoring and alerts
+- Enable fully automated scheduled DAG runs for continuous data ingestion
+- Parameterize DAG for multiple months / datasets
+- Add data quality checks and validation tasks
+- Store processed data in a database or data warehouse
+- Add alerting (email / Slack) on task failures
+- Extend dashboards with additional KPIs and filters
+
 
 
 

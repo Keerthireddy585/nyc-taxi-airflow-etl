@@ -28,12 +28,12 @@ The project focuses on robustness, scalability, and correctness, similar to prod
 
 ## Tools & Technologies
 
-- **Apache Airflow** – Workflow orchestration
-- **Docker & Docker Compose** – Containerized execution environment
-- **Python** – ETL pipeline logic
-- **Pandas** – Data transformation and processing
-- **CSV Dataset** – NYC Yellow Taxi trip records
-- **Power BI / Tableau** – Dashboarding & data visualization
+- **Apache Airflow** - Workflow orchestration
+- **Docker & Docker Compose** - Containerized execution environment
+- **Python** - ETL pipeline logic
+- **Pandas** - Data transformation and processing
+- **CSV Dataset** - NYC Yellow Taxi trip records
+- **Power BI / Tableau** - Dashboarding & data visualization
 
 
 ## Prerequisites
@@ -117,6 +117,20 @@ Logs include:
 -	Errors and stack traces
 -	Retry attempts
 -	Chunk-based processing prevents memory-related crashes 
+
+
+## Troubleshooting
+- **Airflow UI not accessible at `http:\\localhost:8080`**
+Check running containers using `docker compose ps`.  
+If required, restart Airflow services.
+- **Task fails with FileNotFoundError**
+Ensure the dataset is placed inside the `dags/` directory and that the file path used in the DAG matches the actual file location.
+- **Out-Of-Memory (OOM) error during transformation**
+This can occur when processing large CSV files.
+The pipeline uses chunk-based processing to reduce memory usage. Ensure chunking logic is enabled in the transform task.
+- **Downstream tasks marked as Upstream Failed**
+This indicates a failure in a previous task.
+Clear the failed task and rerun the DAG from the Airflow UI.
 
 
 ## Testing

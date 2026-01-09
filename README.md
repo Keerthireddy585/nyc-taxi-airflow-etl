@@ -1,13 +1,13 @@
 # nyc-taxi-airflow-etl
-This project implements an end-to-end ETL pipeline using Apache Airflow (Dockerized) to process large-scale NYC Yellow Taxi trip data
-The pipeline extracts raw data, performs memory-efficient transformations, and prepares clean, analytics-ready data for dashboarding and insights.
+This project implements an end-to-end, scheduled ETL pipeline using Apache Airflow, orchestrating extract, transform, and load tasks to convert NYC Yellow Taxi trip data into analytics-ready datasets for downstream dashboarding and analysis.
 
 
 ## Project Overview
 
 The NYC Taxi ETL Pipeline is designed to demonstrate real-world data engineering practices such as:
 
-- Workflow orchestration with Apache Airflow
+- Scheduled and automated workflow execution using Apache Airflow DAGs
+- Workflow orchestration and task dependency management with Apache Airflow
 - Handling large datasets efficiently using chunk-based processing
 - Running data pipelines in a Dockerized environment
 - Preparing data for analytics and visualization
@@ -42,9 +42,9 @@ Before running this project, ensure you have:
 - Docker installed
 -	Docker Compose installed
 -	Basic knowledge of:
--	Python
--	Apache Airflow
--	Docker
+  -	Python
+  -	Apache Airflow
+  -	Docker
 -	Minimum 8 GB RAM recommended (chunking allows lower memory too)
 
 
@@ -59,6 +59,7 @@ cd nyc-airflow-etl
 ```
 
 ### Step 2: Place Dataset
+Place the NYC Yellow Taxi CSV file inside the `dags/` directory so it can be accessed by the Airflow DAG.
 
 ```text
 dags/yellow_tripdata_2016-01.csv
@@ -107,6 +108,10 @@ From the Airflow UI, you can:
 -	Reads the cleaned dataset.
 -	Verifies row count and schema.
 -	Makes data ready for analytics and dashboards.
+
+
+## Automation & Scheduling
+The Airflow DAG is configured with a schedule interval, enabling the pipeline to run automatically without manual intervention once deployed. Manual DAG triggers were used during development and testing.
 
 
 ## Handling Errors & Logs
@@ -182,7 +187,7 @@ This project demonstrates a production-style data engineering pipeline with **Ai
 It highlights best practices for handling large datasets, task orchestration, and analytics preparation.
 
 ### Future Enhancements:
-- Enable fully automated scheduled DAG runs for continuous data ingestion
+- Extend automated scheduled DAG runs to support continuous multi-period data ingestion.
 - Parameterize DAG for multiple months / datasets
 - Add data quality checks and validation tasks
 - Store processed data in a database or data warehouse

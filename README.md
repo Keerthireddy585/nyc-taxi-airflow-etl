@@ -42,9 +42,9 @@ Before running this project, ensure you have:
 - Docker installed
 -	Docker Compose installed
 -	Basic knowledge of:
-    1.	Python
-    2.	Apache Airflow
-    3.	Docker
+    - Python
+    - Apache Airflow
+    - Docker
 -	Minimum 8 GB RAM recommended (chunking allows lower memory too)
 
 
